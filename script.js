@@ -156,9 +156,9 @@ function handleContactForm(e) {
     e.preventDefault();
     
     const formData = new FormData(contactForm);
-    const name = formData.get('name');
-    const email = formData.get('email');
-    const message = formData.get('message');
+    const name = formData.get('entry.1810067648');
+    const email = formData.get('entry.1315519357');
+    const message = formData.get('entry.1496929854');
     
     // Simple validation
     if (!name || !email || !message) {
@@ -401,8 +401,13 @@ function init() {
     
     // Contact form
     if (contactForm) {
-        contactForm.addEventListener('submit', handleContactForm);
-    }
+    contactForm.addEventListener('submit', function() {
+        setTimeout(() => {
+            showNotification('Thank you! Your message has been sent successfully.', 'success');
+            contactForm.reset();
+        }, 1000);
+    });
+}
     
     // Scroll event listener
     window.addEventListener('scroll', throttledScroll, { passive: true });
