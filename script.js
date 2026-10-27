@@ -54,11 +54,11 @@ class TypeWriter {
 function initTypingAnimation() {
     if (typedText) {
         const words = [
+            'M.Tech CSE Scholar',
             'Python Developer',
-            'Data Analyst', 
-            'ML Explorer',
+            'Data & ML Explorer',
             'Backend Enthusiast',
-            'Interested in Data Science and AI'
+            'AI & RAG Researcher'
         ];
         new TypeWriter(typedText, words, 3000);
     }
@@ -398,6 +398,9 @@ function init() {
     
     // Setup SVG interactions
     setupSVGInteractions();
+
+    // Auto update copyright year
+    updateCopyrightYear();
     
     // Contact form
     if (contactForm) {
@@ -503,3 +506,11 @@ window.addEventListener('resize', () => {
         toggleMobileMenu();
     }
 });
+
+// Auto-update copyright year
+function updateCopyrightYear() {
+    const yearElement = document.getElementById('current-year');
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+    }
+}
